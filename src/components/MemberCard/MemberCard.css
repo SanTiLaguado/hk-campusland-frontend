@@ -1,0 +1,85 @@
+.member-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+    padding: 10px;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+    background-color: #f8f8f8;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    position: relative;
+  }
+  
+  .profile-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+  }
+  
+  .member-info {
+    flex: 1;
+  }
+  
+  .member-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .member-alias {
+    color: #657786;
+    margin: 2px 0;
+  }
+  
+  .member-cargo {
+    font-size: 14px;
+    color: #555;
+    margin-top: 5px;
+  }
+  
+  .menu-button {
+    background: none;
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
+    padding: 5px;
+  }
+  
+  .menu-dropdown {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #e1e8ed;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+  }
+  
+  .menu-dropdown ul {
+    list-style: none;
+    margin: 0;
+    padding: 5px 0;
+  }
+  
+  .menu-dropdown li {
+    padding: 10px 15px;
+    cursor: pointer;
+  }
+  
+  .menu-dropdown li:hover {
+    background-color: #f5f8fa;
+  }
+  
+  .delete-option {
+    color: red;
+  }
+  
+  .delete-option:hover {
+    background-color: #ffe5e5;
+  }
+  

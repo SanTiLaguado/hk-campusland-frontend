@@ -7,11 +7,14 @@
 }
 
 .main{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
     margin-left: 250px;
     padding: 0em 1em 0em 1em;
-    text-align: center;
     background-color: rgb(235, 238, 241);
     min-height: 92.8vh;
     z-index: 0;
     max-height: 92.8vh;
 }
+

@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import { login, register} from "../../services/AuthService";
-import cslogo from '../../assets/thislogo.png'
+import { login, register } from "../../services/AuthService";
+import cslogo from '../../assets/thislogo.png';
 import "./Auth.css";
 
 export default function Auth() {
   const [isLogin, setIsLogin] = useState(true);
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
+  const [nombre, setNombre] = useState("");
+  const [apellido, setApellido] = useState("");
+  const [email, setEmail] = useState("");
   const [error, setError] = useState("");
+  const [genero, setGenero] = useState("");
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
@@ -20,24 +23,25 @@ export default function Auth() {
     if (token) {
       navigate('/dashboard');
     }
-    }, [token, navigate]
-  );
+  }, [token, navigate]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     setLoading(true);
     setError("");
 
+    const roles = ["USER"];
+
     try {
       if (isLogin) {
-        await login(email, password);
+        await login(username, password);
         console.log("Inicio de sesión exitoso");
-        navigate('/dashboard')
+        navigate('/dashboard');
       } else {
-        await register(email, password, name);
+        await register(username, password, nombre, apellido, genero, email, roles);
         console.log("Registro exitoso");
-        navigate('/login')
-        setIsLogin(true)
+        navigate('/login');
+        setIsLogin(true);
       }
     } catch (err) {
       setError(isLogin ? "Error al iniciar sesión. Por favor, intente de nuevo." : "Error al registrarse. Por favor, intente de nuevo.");
@@ -58,37 +62,73 @@ export default function Auth() {
           </h3>
           <form className="auth-form" onSubmit={handleSubmit}>
             {!isLogin && (
-              <div className="auth-input-group">
-                <label htmlFor="name">Nombre</label>
-                <input 
-                  id="name" 
-                  placeholder="Tu nombre" 
-                  value={name} 
-                  onChange={(e) => setName(e.target.value)} 
-                  required 
-                />
-              </div>
+              <>
+                <div className="auth-input-group">
+                  <label htmlFor="email">Correo Electrónico</label>
+                  <input
+                    id="email"
+                    placeholder="Ingresa tu correo electrónico"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                    type="email"
+                  />
+                </div>
+                <div className="auth-input-group">
+                  <label htmlFor="nombre">Nombre</label>
+                  <input
+                    id="nombre"
+                    placeholder="Tu nombre"
+                    value={nombre}
+                    onChange={(e) => setNombre(e.target.value)}
+                    required
+                  />
+                </div>
+                <div className="auth-input-group">
+                  <label htmlFor="apellido">Apellido</label>
+                  <input
+                    id="apellido"
+                    placeholder="Tu apellido"
+                    value={apellido}
+                    onChange={(e) => setApellido(e.target.value)}
+                    required
+                  />
+                </div>
+                <div className="auth-input-group">
+                  <label htmlFor="genero">Género</label>
+                  <select
+                    id="genero"
+                    value={genero}
+                    onChange={(e) => setGenero(e.target.value)}
+                    required
+                  >
+                    <option value="">Selecciona tu género</option>
+                    <option value="1">Masculino</option>
+                    <option value="2">Femenino</option>
+                    <option value="3">Otro</option>
+                  </select>
+                </div>
+              </>
             )}
             <div className="auth-input-group">
-              <label htmlFor="email">Correo electrónico</label>
-              <input 
-                id="email" 
-                placeholder="Introduce tu correo electrónico" 
-                value={email} 
-                onChange={(e) => setEmail(e.target.value)} 
-                required 
-                type="email" 
+              <label htmlFor="username">Nombre de usuario</label>
+              <input
+                id="username"
+                placeholder="Nombre de usuario"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                required
               />
             </div>
             <div className="auth-input-group">
               <label htmlFor="password">Contraseña</label>
-              <input 
-                id="password" 
-                placeholder="Introducir contraseña" 
-                value={password} 
-                onChange={(e) => setPassword(e.target.value)} 
-                required 
-                type="password" 
+              <input
+                id="password"
+                placeholder="Introduce tu contraseña"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                type="password"
               />
             </div>
             <button className="auth-button" type="submit" disabled={loading}>

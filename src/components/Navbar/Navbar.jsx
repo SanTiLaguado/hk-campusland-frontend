@@ -23,13 +23,13 @@ const Navbar = () => {
         </div>
         <div className="option">
           <div className="option-icon">
-            <i className="fa fa-bar-chart" aria-hidden="true"></i>
+            <i className="fa fa-tasks" aria-hidden="true"></i>
           </div>
-          <Link className="option-link" to="/proyects">Proyectos</Link>
+          <Link className="option-link" to="/projects">Proyectos</Link>
         </div>
         <div className="option">
           <div className="option-icon">
-            <i className="fa fa-tasks" aria-hidden="true"></i>
+            <i className="fa fa-th" aria-hidden="true"></i>
           </div>
           <Link className="option-link" to="/organizations">Organizaciones</Link>
         </div>
@@ -44,20 +44,20 @@ const Navbar = () => {
         </div>
         <div className="option">
           <div className="option-icon">
-            <i className="fa fa-tasks" aria-hidden="true"></i>
+            <i className="fa fa-list-alt" aria-hidden="true"></i>
           </div>
-          <Link className="option-link" to="/history">Mi Historial</Link>
+          <a className="option-link">Mi Historial</a>
         </div>
         <div className="option">
           <div className="option-icon">
-            <i className="fa fa-tasks" aria-hidden="true"></i>
+            <i className="fa fa-cog" aria-hidden="true"></i>
           </div>
-          <Link className="option-link" to="/configuration">Configuracion</Link>
+          <a className="option-link">Configuracion</a>
         </div>
       </div>
       <div className="credit">
         This. Tracker <br />   
-        Version 0.0.1
+        Version 0.1.0
       </div>
     </nav>
   );
