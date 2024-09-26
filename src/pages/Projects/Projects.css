@@ -1,0 +1,76 @@
+.organization-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: start;
+}
+
+.organization {
+    margin-bottom: 30px;
+}
+
+.organization h2 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: #333;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #f15a24;
+}
+
+.project-list {
+    display: flex;
+    justify-content: start;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.project {
+    width: 20%;
+    height: 80px;
+    border: 1px solid #ddd;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    transition: transform 0.2s;
+    cursor: pointer;
+}
+
+.project:hover {
+    transform: scale(1.05);
+}
+
+.project span {
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+}
+
+.status {
+    display: block;
+    font-size: 0.9em;
+    padding: 2px 10px;
+    border-radius: 10px;
+}
+
+.status.ACTIVO {
+    background-color: #f15a24;
+    color: white;
+    font-weight: 510;
+}
+
+.status.COMPLETADO {
+    background-color: #d1f1e4;
+    color: #0c5460;
+    border: 1px solid #d1f1e4;
+}
+
+
+#projects h1 {
+    margin: 15px 0px 5px 0px;
+    font-size: 2em;
+    color: #333;
+}

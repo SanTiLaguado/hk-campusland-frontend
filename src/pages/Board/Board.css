@@ -1,0 +1,137 @@
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.dashboard {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.task-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 300px;
+    margin-right: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    height: 637px;
+}
+
+.task {
+    display: flex;
+    width: 90%; 
+    height: 80px;
+    border: 1px solid #ddd; 
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    background-color: #f9f9f9; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    border-radius: 8px; 
+    transition: transform 0.2s; 
+    cursor: pointer;
+    padding: 0 10px; 
+}
+
+.task:hover {
+    transform: scale(1.05);
+}
+
+.task span {
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+}
+
+.status {
+    display: block;
+    font-size: 0.9em;
+    padding: 2px 10px;
+    border-radius: 10px;
+}
+
+.status.PENDIENTE {
+    background-color: #f15a24;
+    color: white;
+    font-weight: 510;
+}
+
+.status.COMPLETADA {
+    background-color: #d1f1e4;
+    color: #0c5460;
+    border: 1px solid #d1f1e4;
+}
+
+.status.EN_PROGRESO {
+    background-color: #50d16c;
+    color: #1b5224;
+    border: 1px solid #d1f1e4;
+}
+
+.board {
+    display: flex;
+    overflow-x: auto;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 300px;
+    margin-right: 20px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+    height: 600px;
+}
+
+.card {
+    background-color: #e2e2e2;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.card:hover {
+    background-color: #d3d3d3;
+}
+
+.board-header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.create-task-button {
+    background-color: #f15a24;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.create-task-button:hover {
+    background-color: #743620;
+}

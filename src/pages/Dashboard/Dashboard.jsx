@@ -2,12 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CheckSquare, Folder } from 'lucide-react';
 import ProjectProgress from '../../components/ProjectProgress/ProyectProgress.jsx';
-import NotificationList from '../../components/NotificationList/NotificationList.jsx'; // Asegúrate de importar el nuevo componente
+import NotificationList from '../../components/NotificationList/NotificationList.jsx';
 import './Dashboard.css';
+import { getUserInfo } from '../../services/AuthService.js';
 
 const Dashboard = () => {
     const navigate = useNavigate();
-    const [userName, setUserName] = useState('User Name');
+    const [userName, setUserName] = useState();
     const [hoursWorked, setHoursWorked] = useState(20);
     const [recentActivities, setRecentActivities] = useState([]);
     const [organizations, setOrganizations] = useState([
@@ -18,7 +19,14 @@ const Dashboard = () => {
     const [notifications, setNotifications] = useState([]);
 
     useEffect(() => {
-        // Simular datos de actividades recientes
+        const storedUser = getUserInfo();
+
+        if (storedUser) {
+            setUserName(storedUser.nombre);
+        } else {
+            console.error("No se encontró información del usuario.");
+        }
+    
         const activities = [
             "Actividad 1: Completar tarea A",
             "Actividad 2: Reunión con el equipo",
@@ -26,8 +34,7 @@ const Dashboard = () => {
             "Actividad 4: Enviar correos a clientes",
         ];
         setRecentActivities(activities);
-
-        // Simular datos de notificaciones
+    
         const notificationsData = [
             "Notificación 1: Tienes una nueva tarea asignada",
             "Notificación 2: Reunión programada para mañana a las 10 AM",
@@ -50,11 +57,11 @@ const Dashboard = () => {
     };
 
     const handleActivityClick = (activity) => {
-        console.log(`Clicked activity: ${activity}`); // Manejo de clics para actividades
+        console.log(`Clicked activity: ${activity}`);
     };
 
     const handleNotificationClick = (notification) => {
-        console.log(`Clicked notification: ${notification}`); // Manejo de clics para notificaciones
+        console.log(`Clicked notification: ${notification}`);
     };
 
     return (

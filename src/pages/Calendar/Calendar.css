@@ -1,0 +1,11 @@
+h1 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.calendar-container {
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+

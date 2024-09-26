@@ -1,11 +1,25 @@
-.col-a {
+#orgpage {
     display: flex;
-    flex-direction: column;
-    width: 50%;
-    padding: 1.9em 0em 0em 1em;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 
-.profile-info{
+.column-1, .column-2 {
+    display: flex;
+    flex-direction: column;
+    padding-top: 4em;
+}
+
+.column-1 {
+    width: 55%;
+}
+
+.column-2 {
+    width: 30%;
+    text-align: start;
+}
+
+.profile-info {
     display: flex;
     align-items: center;
 }
@@ -23,19 +37,22 @@
     height: auto;
 }
 
-.org-info{
+.org-info {
     display: flex;
     flex-direction: column;
-    align-items: start;
-    padding: 0em 0em 1em 1em;
+    align-items: flex-start;
+    padding: 0 0 1em 1em;
 }
 
-.org-info h1{
+.org-info h1 {
     font-size: 30px;
+}
+
+.org-info p {
     padding-bottom: 10px;
 }
 
-.code-button{
+.code-button {
     background-color: #f15a24;
     color: white;
     border: none;
@@ -44,16 +61,17 @@
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
 }
+
 .code-button:hover {
     background-color: #e0501f;
     transform: scale(1.05);
 }
 
-.org-proyects{
+.org-proyects {
     padding-top: 1em;
 }
 
-.org-proyects h2{
+.org-proyects h2 {
     text-align: start;
     margin-bottom: 10px;
 }
@@ -70,12 +88,69 @@
     transition: background-color 0.3s;
 }
 
+.proy-info{
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+}
+
+.proyect-name{
+    font-weight: 600;
+}
+
 .proy-item:hover {
     background-color: #e8e8e8;
 }
 
-.col-b {
+.members-list {
     display: flex;
     flex-direction: column;
-    width: 50%;
+    align-items: center;
+    max-width: 30em;
+    width: 100%;
+    min-height: 535px;
+    max-height: 590px;
+    margin-top: 1em;
+    padding: 5px 4px 0;
+    background-color: #f4f5f7;
+    border: 1px solid #e0dede;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow-y: auto;
+}
+
+.view-p-button{
+    background-color: #f15a24;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.view-p-button:hover {
+    background-color: #e0501f;
+    transform: scale(1.05);
+}
+
+.no-proyects{
+    margin-top: 2em;
+    font-size: 18px;
+}
+
+.create-project-button{
+    background-color: #f15a24;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin-top: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.create-project-button:hover {
+    background-color: #e0501f;
+    transform: scale(1.05);
 }

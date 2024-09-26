@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import logo from '../../assets/thislogo.png';
-import userPic from '../../assets/react.svg';
+import userPic from '../../assets/avatar_placeholder.png';
 import NotificationMenu from './NotificationMenu/NotificationMenu.jsx';
 import ConfigMenu from './ConfigMenu/ConfigMenu.jsx';
+import { logout } from '../../services/AuthService.js';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [menuVisible, setMenuVisible] = useState(false);
@@ -28,17 +30,19 @@ const Header = () => {
     setNotifVisible(!notifVisible);
   };
 
+  const handleLogout = () => {
+    logout();
+  };
+
   return (
     <header className="header">
       <div className="header_logo">
         <img src={logo} alt="LOGO" />
       </div>
       <nav className="header_nav">
-        <ul>
-          <li><a href="/dashboard">Dashboard</a></li>
-          <li><a href="/calendar">Mi Calendario</a></li>
-          <li><a href="/board">Tablero</a></li>
-        </ul>
+        <Link className="nav-option-link" to="/dashboard">Dashboard</Link>
+        <Link className="nav-option-link" to="/calendar">Calendario</Link>
+        <Link className="nav-option-link" to="/board">Tablero</Link>
       </nav>
       <div className="user-menu">
         <div className="notif-button" onClick={toggleNotif}>
@@ -54,7 +58,7 @@ const Header = () => {
           <div className="dropdown-menu">
             <ul>
               <li><a href="/profile">Mi Perfil</a></li>
-              <li><a href="/logout">Cerrar sesión</a></li>
+              <li><a href="/login" onClick={handleLogout}>Cerrar sesión</a></li>
             </ul>
           </div>
         )}
